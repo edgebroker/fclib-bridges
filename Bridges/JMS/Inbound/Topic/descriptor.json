@@ -1,0 +1,38 @@
+{
+  "description": "Creates an inbound Topic Bridge.",
+  "labelproperty": "topicname",
+  "links": {
+    "output": [
+      {
+        "name": "Out",
+        "type": "message",
+        "mandatory": true
+      }
+    ]
+  },
+  "refs": {
+    "input": [
+      {
+        "name": "Connection",
+        "type": "jmsconnection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "topicname",
+      "label": "Topic Name",
+      "description": "Provide the name of the topic.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "durablename",
+      "label": "Durable Subcriber Name",
+      "description": "If you want to create/connect as a durable subcriber, provide a name (a client id must have been set in the connection).",
+      "type": "string",
+      "mandatory": false
+    }
+  ]
+}
