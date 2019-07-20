@@ -100,6 +100,24 @@
       "type": "integer",
       "default": 131072,
       "mandatory": false
+    },
+    {
+      "name": "incomingwindow",
+      "label": "Session Incoming Window Size",
+      "description": "Session Incoming Window Size (Frames).",
+      "type": "integer",
+      "min": 1,
+      "default": 100,
+      "mandatory": false
+    },
+    {
+      "name": "outgoingwindow",
+      "label": "Session Outgoing Window Size",
+      "description": "Session Outgoing Window Size (Frames).",
+      "type": "integer",
+      "min": 1,
+      "default": 100,
+      "mandatory": false
     }
   ]
 }

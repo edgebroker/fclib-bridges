@@ -1,0 +1,40 @@
+{
+  "description": "Creates an outbound AMQP 1.0 Bridge.",
+  "labelproperty": "targetaddress",
+  "links": {
+    "input": [
+      {
+        "name": "In",
+        "type": "amqp10message",
+        "mandatory": true
+      }
+    ]
+  },
+  "refs": {
+    "input": [
+      {
+        "name": "Connection",
+        "type": "amqp10connection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "targetaddress",
+      "label": "Target Address",
+      "description": "Provide the target address.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "qos",
+      "label": "Quality of Service",
+      "description": "Target Quality of Service.",
+      "type": "choice",
+      "choice": ["At most once", "At least once", "Exactly once"],
+      "default": "At most once",
+      "mandatory": false
+    }
+  ]
+}

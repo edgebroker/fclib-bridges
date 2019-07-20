@@ -1,5 +1,6 @@
 {
   "description": "Creates a JMS Connection to a ActiveMQ Classic Broker (ActiveMQ 5) and provides it as Reference.",
+  "requirements": "Please upload the ActiveMQ (all) jar file to the flow.",
   "refs": {
     "output": [
       {
@@ -37,6 +38,16 @@
       "description": "JMS Password.",
       "type": "string",
       "mandatory": false
+    },
+    {
+      "name": "requirementsfulfilled",
+      "label": "Did you upload all required jar files?",
+      "description": "Please confirm",
+      "type": "choice",
+      "choice": [
+        "yes"
+      ],
+      "mandatory": true
     }
   ]
 }

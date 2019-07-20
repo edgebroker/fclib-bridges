@@ -7,38 +7,43 @@ function handler() {
     connect();
     this.setOutputReference("Connection", execRef);
 
-    function connect(){
-        var doAuth = this.props["saslenabled"];
-       var anon = this.props["saslanonymous"];
+    function connect() {
+        var doAuth = self.props["saslenabled"];
+        var anon = self.props["saslanonymous"];
 
-       if (!doAuth || anon)
-           self.connection = new CONNECTION(new CTX(CTX.CLIENT), self.props["hostname"], self.props["port"], doAuth);
-       else {
-           var username = self.props["saslusername"];
-           var password = self.props["saslpassword"];
-           if (!username)
-               throw "sasl username must be set when using SASL";
-           if (!password)
-               throw "sasl password must be set when using SASL";
-           self.connection = new CONNECTION(new CTX(CTX.CLIENT), self.props["hostname"], self.props["port"], username, password);
-       }
+        if (!doAuth || anon)
+            self.connection = new CONNECTION(new CTX(CTX.CLIENT), self.props["hostname"], self.props["port"], doAuth);
+        else {
+            var username = self.props["saslusername"];
+            var password = self.props["saslpassword"];
+            if (!username)
+                throw "sasl username must be set when using SASL";
+            if (!password)
+                throw "sasl password must be set when using SASL";
+            self.connection = new CONNECTION(new CTX(CTX.CLIENT), self.props["hostname"], self.props["port"], username, password);
+        }
 
-       self.connection.setMechanism(self.props["saslmechanism"]);
-       self.connection.setIdleTimeout(self.props["idletimeout"]);
-       self.connection.setMaxFrameSize(self.props["maxframesize"]);
-       var containerId = self.props["containerid"];
-       if (containerId)
-           self.connection.setContainerId(containerId);
-       var openHostname = self.props["openhostname"];
-       if (openHostname)
-           self.connection.setOpenHostname(openHostname);
-       var isTLS = self.props["istls"];
-       if (isTLS)
-           connection.setSocketFactory(new JSSE());
-       self.connection.connect();
+        self.connection.setMechanism(self.props["saslmechanism"]);
+        self.connection.setIdleTimeout(self.props["idletimeout"]);
+        self.connection.setMaxFrameSize(self.props["maxframesize"]);
+        var containerId = self.props["containerid"];
+        if (containerId)
+            self.connection.setContainerId(containerId);
+        var openHostname = self.props["openhostname"];
+        if (openHostname)
+            self.connection.setOpenHostname(openHostname);
+        var isTLS = self.props["istls"];
+        if (isTLS)
+            connection.setSocketFactory(new JSSE());
+        self.connection.connect();
+        self.session = self.connection.createSession(self.props["incomingwindow"], self.props["outgoingwindow"]);
     }
 
     function execRef() {
-        return self.connection;
+        return self;
+    }
+
+    this.getSession = function() {
+        return self.session;
     }
 }
