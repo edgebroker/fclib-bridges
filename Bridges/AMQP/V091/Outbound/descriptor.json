@@ -1,0 +1,45 @@
+{
+  "description": "Creates an outbound AMQP 0.9.1 Bridge.",
+  "links": {
+    "input": [
+      {
+        "name": "In",
+        "type": "amqp091message",
+        "mandatory": true
+      }
+    ]
+  },
+  "refs": {
+    "input": [
+      {
+        "name": "Connection",
+        "type": "amqp091connection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "exchangename",
+      "label": "Exchange Name",
+      "description": "Provide the Exchange Name.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "exchangetype",
+      "label": "Exchange Type",
+      "description": "Provide the Exchange Type.",
+      "type": "string",
+      "default": "direct",
+      "mandatory": false
+    },
+    {
+      "name": "routingkey",
+      "label": "Routing Key",
+      "description": "Provide the Routing Key.",
+      "type": "string",
+      "mandatory": false
+    }
+  ]
+}

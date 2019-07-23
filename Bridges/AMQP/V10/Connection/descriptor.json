@@ -1,5 +1,5 @@
 {
-  "description": "Creates a AMQP 1.0 Connection to a Message Broker and provides it as Reference.",
+  "description": "Creates a AMQP 1.0 Connection to a AMQP Broker and provides it as Reference.",
   "refs": {
     "output": [
       {
@@ -13,14 +13,14 @@
     {
       "name": "hostname",
       "label": "Hostname",
-      "description": "Provide the hostname of the SwiftMQ Router.",
+      "description": "Provide the hostname of the AMQP Broker.",
       "type": "string",
       "mandatory": true
     },
     {
       "name": "port",
       "label": "Port",
-      "description": "Provide the JMS port of the SwiftMQ Router.",
+      "description": "Provide the JMS port of the AMQP Broker.",
       "type": "integer",
       "default": 5672,
       "mandatory": true

@@ -1,0 +1,32 @@
+{
+  "description": "Creates a AMQP 0.9.1 Connection to a AMQP Broker and provides it as Reference.",
+  "requirements": "Please upload the RabbitMQ Java Client jar files to the flow.",
+  "refs": {
+    "output": [
+      {
+        "name": "Connection",
+        "type": "amqp091connection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "uri",
+      "label": "Connect URI",
+      "description": "Provide the URI of the AMQP Broker.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "requirementsfulfilled",
+      "label": "Did you upload all required jar files?",
+      "description": "Please confirm",
+      "type": "choice",
+      "choice": [
+        "yes"
+      ],
+      "mandatory": true
+    }
+  ]
+}
