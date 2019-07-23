@@ -1,0 +1,76 @@
+{
+  "description": "Creates a MQTT 3.1.1 Connection to a MQTT Broker and provides it as Reference.",
+  "requirements": "Please upload the Eclipse Paho Java Client jar files to the flow.",
+  "refs": {
+    "output": [
+      {
+        "name": "Connection",
+        "type": "mqtt311connection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "url",
+      "label": "Connect URL",
+      "description": "Provide the URL of the MQTT Broker.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "clientid",
+      "label": "Client Id",
+      "description": "Provide the Client Id.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "autoreconnect",
+      "label": "Automatic Reconnect",
+      "description": "Check to automatic reconnect.",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "name": "cleansesssion",
+      "label": "Clean Session",
+      "description": "Check to set clean session.",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "name": "keepaliveinterval",
+      "label": "Keepalive Interval (Sec)",
+      "description": "Set the keepalive interval in seconds.",
+      "type": "integer",
+      "min": 1,
+      "default": 10,
+      "mandatory": false
+    },
+    {
+      "name": "username",
+      "label": "Username",
+      "description": "Username.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "password",
+      "label": "Password",
+      "description": "Password.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "requirementsfulfilled",
+      "label": "Did you upload all required jar files?",
+      "description": "Please confirm",
+      "type": "choice",
+      "choice": [
+        "yes"
+      ],
+      "mandatory": true
+    }
+  ]
+}

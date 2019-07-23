@@ -1,0 +1,40 @@
+{
+  "description": "Creates an inbound MQTT 3.1.1 Bridge.",
+  "labelproperty": "topicfilter",
+  "links": {
+    "output": [
+      {
+        "name": "Out",
+        "type": "mqtt311message",
+        "mandatory": true
+      }
+    ]
+  },
+  "refs": {
+    "input": [
+      {
+        "name": "Connection",
+        "type": "mqtt311connection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "topicfilter",
+      "label": "Topic Filter",
+      "description": "Provide the Topic Filter, may include wild cards.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "qos",
+      "label": "Quality of Service",
+      "description": "Maximum Quality of Service. May be downgraded to the publishing QoS.",
+      "type": "choice",
+      "choice": ["At most once", "At least once", "Exactly once"],
+      "default": "At most once",
+      "mandatory": true
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "description": "Creates an outbound MQTT 3.1.1 Bridge.",
+  "labelproperty": "topicname",
+  "links": {
+    "input": [
+      {
+        "name": "In",
+        "type": "mqtt311message",
+        "mandatory": true
+      }
+    ]
+  },
+  "refs": {
+    "input": [
+      {
+        "name": "Connection",
+        "type": "mqtt311connection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "topicname",
+      "label": "Topic Name",
+      "description": "Provide the Topic Name.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "qos",
+      "label": "Quality of Service",
+      "description": "Quality of Service for the publish.",
+      "type": "choice",
+      "choice": [
+        "At most once",
+        "At least once",
+        "Exactly once"
+      ],
+      "default": "At most once",
+      "mandatory": true
+    },
+    {
+      "name": "retain",
+      "label": "Retain Message",
+      "description": "Whether or not the message should be retained by the server.",
+      "type": "boolean",
+      "default": false
+    }
+  ]
+}
