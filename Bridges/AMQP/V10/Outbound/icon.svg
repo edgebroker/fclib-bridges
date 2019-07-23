@@ -1,12 +1,6 @@
-<?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 224 224" width="24px" height="24px">
-  <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
-     stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
-     font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-    <path d="M0,224v-224h224v224z" fill="none"/>
-    <g fill="#34495E">
-      <path
-          d="M56,18.66667c-10.31333,0 -18.66667,8.35333 -18.66667,18.66667v28h149.33333v-28c0,-10.31333 -8.35333,-18.66667 -18.66667,-18.66667zM37.33333,84v56h112v-9.33333v-18.66667c0,-5.152 4.18133,-9.33333 9.33333,-9.33333h9.33333h9.33333h9.33333v-18.66667zM168,121.33333v56h-28l37.33333,37.33333l37.33333,-37.33333h-28v-56zM37.33333,158.66667v28c0,10.31333 8.35333,18.66667 18.66667,18.66667h85.60417l-14.80208,-14.80209l-10.64584,-10.64582c-7.83067,-7.83068 -2.28287,-21.21875 8.78647,-21.21875z"/>
-    </g>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+<g id="surface415050">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(20.392157%,28.627451%,36.862745%);fill-opacity:1;" d="M 5 3 C 3.90625 3 3 3.90625 3 5 L 3 19 C 3 20.09375 3.90625 21 5 21 L 19 21 C 20.09375 21 21 20.09375 21 19 L 21 5 C 21 3.90625 20.09375 3 19 3 Z M 5 5 L 19 5 L 19 10.585938 L 15.707031 7.292969 L 14.292969 8.707031 L 16.585938 11 L 9 11 L 9 13 L 16.585938 13 L 14.292969 15.292969 L 15.707031 16.707031 L 19 13.414062 L 19 19 L 5 19 Z M 5 5 "/>
+</g>
 </svg>
