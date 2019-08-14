@@ -9,6 +9,6 @@ function handler(timer) {
             msg.property("key").set(record.key());
         msg.body(record.value());
         this.executeOutputLink("Out", msg);
-        this.consumer.commitSync();
     }
+    this.consumer.commitSync();
 }
