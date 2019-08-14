@@ -1,0 +1,141 @@
+{
+  "description": "Creates a Kafka Consumer on a list of topics. It returns bytes messages and uses StringDeserializer for the key and ByteArrayDeserializer for the value. The key is set as a String property, the value as the body of the resulting bytes message.",
+  "requirements": "Please upload the Apache Kafka Java Client jar file to the flow.",
+  "links": {
+    "input": [
+      {
+        "name": "Poll",
+        "type": "timer",
+        "mandatory": true
+      }
+    ],
+    "output": [
+      {
+        "name": "Out",
+        "type": "message",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "bootstrapservers",
+      "label": "Bootstrap Servers",
+      "description": "Provide a comma separated list of bootstrap servers (host:post,host:port ...)",
+      "type": "string",
+      "default": "localhost:9092",
+      "mandatory": true
+    },
+    {
+      "name": "topicnames",
+      "label": "Topic Names",
+      "type": "array",
+      "description": "Names of the topics to subscribe to.",
+      "fieldtypes": [
+        "string"
+      ],
+      "mandatory": false
+    },
+    {
+      "name": "allowautocreatetopic",
+      "label": "Allow Autocreate Topic",
+      "description": "Allow automatic topic creation on the broker when subscribing to or assigning a topic.",
+      "type": "boolean",
+      "default": true,
+      "mandatory": false
+    },
+    {
+      "name": "groupid",
+      "label": "Group Id",
+      "description": "A unique string that identifies the consumer group this consumer belongs to.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "groupinstanceid",
+      "label": "Group Instance Id",
+      "description": "A unique identifier of the consumer instance provided by end user.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "polltimeout",
+      "label": "Poll Timeout (ms)",
+      "description": "Timeout to wait for messages on poll().",
+      "type": "integer",
+      "min": 10,
+      "default": 500,
+      "mandatory": true
+    },
+    {
+      "name": "maxpollrecords",
+      "label": "Max Poll Records",
+      "description": "The maximum number of records returned in a single call to poll().",
+      "type": "integer",
+      "min": 1,
+      "default": 500,
+      "mandatory": true
+    },
+    {
+      "name": "autooffsetreset",
+      "label": "Auto Offset Reset",
+      "description": "What to do when there is no initial offset in Kafka or if the current offset does not exist any more on the server.",
+      "type": "choice",
+      "choice": [
+        "latest",
+        "earliest",
+        "none"
+      ],
+      "default": "latest",
+      "mandatory": false
+    },
+    {
+      "name": "isolationlevel",
+      "label": "Isolation Level",
+      "description": "Controls how to read messages written transactionally.",
+      "type": "choice",
+      "choice": [
+        "read_committed",
+        "read_uncommitted"
+      ],
+      "default": "read_uncommitted",
+      "mandatory": false
+    },
+    {
+      "name": "clientdnslookup",
+      "label": "Client DNS Lookup",
+      "description": "Controls how the client uses DNS lookups.",
+      "type": "choice",
+      "choice": [
+        "default",
+        "use_all_dns_ips",
+        "resolve_canonical_bootstrap_servers_only"
+      ],
+      "default": "default"
+    },
+    {
+      "name": "clientid",
+      "label": "Client Id",
+      "description": "An id string to pass to the server when making requests.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "clientrackid",
+      "label": "Client Rack Id",
+      "description": "A rack identifier for this client.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "requirementsfulfilled",
+      "label": "Did you upload all required jar files?",
+      "description": "Please confirm",
+      "type": "choice",
+      "choice": [
+        "yes"
+      ],
+      "mandatory": true
+    }
+  ]
+}
