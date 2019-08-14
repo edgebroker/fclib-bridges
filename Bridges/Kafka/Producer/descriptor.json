@@ -1,5 +1,5 @@
 {
-  "description": "Creates a Kafka Producer on a given Topic.",
+  "description": "Creates a Kafka Producer on a topic. It accepts bytes or text messages and uses StringSerializer for the key and ByteArraySerializer for the value.",
   "labelproperty": "topicname",
   "requirements": "Please upload the Apache Kafka Java Client jar file to the flow.",
   "links": {
