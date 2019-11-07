@@ -1,0 +1,72 @@
+{
+  "description": "Run a single KSQL Statement. All statements, except those starting with SELECT, can be run with this component. To run SELECT statements use the KSQL Query component.",
+  "properties": [
+    {
+      "name": "url",
+      "label": "URL",
+      "description": "Provide the URL of the KSQL server. Don't use 'localhost' but use the IP address / hostname instead.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "username",
+      "label": "Username",
+      "description": "Provide a username if you need to authenticate to the KSQL server.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "password",
+      "label": "Password",
+      "description": "Provide a password if you need to authenticate to the KSQL server.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "contenttype",
+      "label": "Content Type",
+      "description": "Provide the Content Type header to be used in the REST requests.",
+      "type": "string",
+      "mandatory": false,
+      "default": "application/vnd.ksql.v1+json"
+    },
+    {
+      "name": "statement",
+      "label": "KSQL Statement",
+      "description": "Provide the KSQL statement.",
+      "type": "textarea",
+      "mandatory": true
+    },
+    {
+      "name": "streamsprops",
+      "label": "Streams Properties",
+      "description": "Provide the Streams Properties",
+      "mandatory": false,
+      "type": "table",
+      "tablefields": [
+        {
+          "name": "key",
+          "label": "Key",
+          "description": "Property Name",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "name": "value",
+          "label": "Value",
+          "description": "Property Value",
+          "type": "string",
+          "mandatory": true
+        }
+      ]
+    },
+    {
+      "name": "request_timeout",
+      "label": "Request Timeout in Seconds",
+      "description": "How long to wait for request completion.",
+      "type": "integer",
+      "default": 10,
+      "mandatory": true
+    }
+  ]
+}

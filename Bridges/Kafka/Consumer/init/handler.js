@@ -13,7 +13,7 @@ function handler() {
         props.put("enable.auto.commit", "false");
         props.put("fetch.size", "1000000");
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        props.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
+        props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("bootstrap.servers", self.props["bootstrapservers"]);
         props.put("client.dns.lookup", self.props["clientdnslookup"]);
         if (self.props["allowautocreatetopic"])

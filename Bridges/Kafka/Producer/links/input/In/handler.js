@@ -1,5 +1,6 @@
 function handler(In) {
     var RECORD = Java.type("org.apache.kafka.clients.producer.ProducerRecord");
+    var STRING = Java.type("java.lang.String");
 
     if (!this.assertProperty(In,this.props["keyproperty"]))
         return;
@@ -7,10 +8,10 @@ function handler(In) {
     var value;
     switch (In.type()) {
         case "bytes":
-            value = In.body();
+            value = new STRING(In.body());
             break;
         case "text":
-            value = In.body().getBytes();
+            value = In.body();
             break;
         default:
             throw "Incoming message is neither of type BytesMessage nor of type TextMessage!";

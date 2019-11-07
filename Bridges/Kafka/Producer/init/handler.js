@@ -9,7 +9,7 @@ function handler() {
         var props = new PROPERTIES();
         props.put("acks", self.props["ackmode"]);
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-        props.put("value.serializer", "org.apache.kafka.common.serialization.ByteArraySerializer");
+        props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("bootstrap.servers", self.props["bootstrapservers"]);
         props.put("compression.type", self.props["compressiontype"]);
         props.put("client.dns.lookup", self.props["clientdnslookup"]);
