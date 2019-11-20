@@ -16,5 +16,6 @@ function handler(In) {
         default:
             throw "Incoming message is neither of type BytesMessage nor of type TextMessage!";
     }
-    this.producer.send(new RECORD(this.props["topicname"], In.property(this.props["keyproperty"]).value().toString(), value));
+    var future = this.producer.send(new RECORD(this.props["topicname"], In.property(this.props["keyproperty"]).value().toString(), value));
+    future.get();
 }
