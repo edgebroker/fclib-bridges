@@ -1,0 +1,64 @@
+{
+  "description": "Creates an inbound AMQP 1.0 Bridge.",
+  "labelproperty": "sourceaddress",
+  "links": {
+    "output": [
+      {
+        "name": "Out",
+        "type": "amqp10message",
+        "mandatory": true
+      }
+    ]
+  },
+  "refs": {
+    "input": [
+      {
+        "name": "Connection",
+        "type": "amqp10connection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "sourceaddress",
+      "label": "Source Address",
+      "description": "Provide the source address.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "sourceselector",
+      "label": "Source Message Selector",
+      "description": "Provide the source message selector.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "nolocal",
+      "label": "Do not receive Messages sent via this Connection",
+      "description": "This is the case when a client sends and receives on the same topic but don't want to receive its own messages.",
+      "type": "boolean",
+      "default": true,
+      "mandatory": false
+    },
+    {
+      "name": "linkcredit",
+      "label": "Link Credit",
+      "description": "Source Link Credit.",
+      "type": "integer",
+      "min": 1,
+      "default": 100,
+      "mandatory": false
+    },
+    {
+      "name": "qos",
+      "label": "Quality of Service",
+      "description": "Source Quality of Service.",
+      "type": "choice",
+      "choice": ["At most once", "At least once", "Exactly once"],
+      "default": "At most once",
+      "mandatory": false
+    }
+  ]
+}

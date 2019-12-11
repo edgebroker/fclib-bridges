@@ -1,0 +1,97 @@
+{
+  "description": "Run a KSQL Query and stream back the Output. The response is streamed back until the LIMIT specified in the statement is reached or the flow is stopped.",
+  "requirements": "Please upload these jar files to the flow: vertx-core, vertx-web-common, vertx-web-client. Release 4.0.0 or later.",
+  "links": {
+    "output": [
+      {
+        "name": "Result",
+        "type": "message",
+        "eventroot": true
+      },
+      {
+        "name": "Error",
+        "type": "message",
+        "eventroot": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "host",
+      "label": "Hostname",
+      "description": "Provide the hostname of the KSQL server. Don't use 'localhost' but use the IP address / hostname instead.",
+      "type": "string",
+      "mandatory": true,
+      "default": "do-not-use-localhost-but-the-ip"
+    },
+    {
+      "name": "port",
+      "label": "Port",
+      "description": "Provide the port of the KSQL server.",
+      "type": "integer",
+      "mandatory": true,
+      "default": 8088
+    },
+    {
+      "name": "username",
+      "label": "Username",
+      "description": "Provide a username if you need to authenticate to the KSQL server.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "password",
+      "label": "Password",
+      "description": "Provide a password if you need to authenticate to the KSQL server.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "query",
+      "label": "KSQL Query",
+      "description": "Provide the KSQL Select statement.",
+      "type": "textarea",
+      "mandatory": true
+    },
+    {
+      "name": "propmap",
+      "label": "Property Mapping",
+      "description": "The query returns an array of values. Please provide a property names for each value.",
+      "type": "array",
+      "mandatory": true
+    },
+    {
+      "name": "streamsprops",
+      "label": "Streams Properties",
+      "description": "Provide the Streams Properties",
+      "mandatory": false,
+      "type": "table",
+      "tablefields": [
+        {
+          "name": "key",
+          "label": "Key",
+          "description": "Property Name",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "name": "value",
+          "label": "Value",
+          "description": "Property Value",
+          "type": "string",
+          "mandatory": true
+        }
+      ]
+    },
+   {
+      "name": "requirementsfulfilled",
+      "label": "Did you upload all required jar files?",
+      "description": "Please confirm",
+      "type": "choice",
+      "choice": [
+        "yes"
+      ],
+      "mandatory": true
+    }
+  ]
+}

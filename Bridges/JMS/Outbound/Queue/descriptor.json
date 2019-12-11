@@ -1,0 +1,39 @@
+{
+  "description": "Creates an outbound Queue Bridge.",
+  "labelproperty": "queuename",
+  "links": {
+    "input": [
+      {
+        "name": "In",
+        "type": "message",
+        "mandatory": true
+      }
+    ]
+  },
+  "refs": {
+    "input": [
+      {
+        "name": "Connection",
+        "type": "jmsconnection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "queuename",
+      "label": "Queue Name",
+      "description": "Provide the name of the queue.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "persistence",
+      "label": "Transfer Persistence",
+      "description": "You can change the message persistence setting here.",
+      "type": "choice",
+      "choice": ["Persistent", "Non Persistent"],
+      "mandatory": false
+    }
+  ]
+}

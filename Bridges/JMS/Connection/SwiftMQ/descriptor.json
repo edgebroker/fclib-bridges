@@ -1,0 +1,104 @@
+{
+  "description": "Creates a JMS Connection to a SwiftMQ Router and provides it as Reference.",
+  "refs": {
+    "output": [
+      {
+        "name": "Connection",
+        "type": "jmsconnection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "hostname",
+      "label": "Hostname",
+      "description": "Provide the hostname of the SwiftMQ Router.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "port",
+      "label": "Port",
+      "description": "Provide the JMS port of the SwiftMQ Router.",
+      "type": "integer",
+      "default": 4001,
+      "mandatory": true
+    },
+    {
+      "name": "hostname2",
+      "label": "Hostname 2nd HA Instance",
+      "description": "Provide the hostname of the 2nd HA instance of the SwiftMQ Router (HA only).",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "port2",
+      "label": "Port 2nd HA Instance",
+      "description": "Provide the JMS port of the SwiftMQ Router.",
+      "type": "integer",
+      "mandatory": false
+    },
+    {
+      "name": "clientid",
+      "label": "Client ID",
+      "description": "JMS Client Id (required to use a durable subscription).",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "username",
+      "label": "Username",
+      "description": "JMS Username.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "password",
+      "label": "Password",
+      "description": "JMS Password.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "istls",
+      "label": "TLS",
+      "description": "Check if the connection is secure (TLS).",
+      "type": "boolean",
+      "default": false,
+      "mandatory": false
+    },
+    {
+      "name": "keepaliveinterval",
+      "label": "Keppalive Interval",
+      "description": "Keepalive intervall in milliseconds.",
+      "type": "integer",
+      "default": "60000",
+      "mandatory": false
+    },
+    {
+      "name": "reconnect",
+      "label": "Reconnect",
+      "description": "Check if the connection should be automatically reconnect on connection lost.",
+      "type": "boolean",
+      "default": true,
+      "mandatory": false
+    },
+    {
+      "name": "maxretries",
+      "label": "Reconnect Max Retries",
+      "description": "Maximum retries for reconnect.",
+      "type": "integer",
+      "default": 50,
+      "mandatory": false
+    },
+    {
+      "name": "retrydelay",
+      "label": "Retry Delay",
+      "description": "Delay in milliseconds between Reconnect attempts",
+      "type": "integer",
+      "default": 10000,
+      "mandatory": false
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "description": "Creates a JMS Connection to a ActiveMQ Artemis Broker and provides it as Reference.",
+  "requirements": "Please upload the Artemis Client (all) jar file to the flow.",
+  "refs": {
+    "output": [
+      {
+        "name": "Connection",
+        "type": "jmsconnection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "hostname",
+      "label": "Hostname",
+      "description": "Provide the hostname of the ActiveMQ Artemis Broker.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "port",
+      "label": "Port",
+      "description": "Provide the JMS port of the ActiveMQ Artemis Broker.",
+      "type": "integer",
+      "default": 61616,
+      "mandatory": true
+    },
+    {
+      "name": "clientid",
+      "label": "Client ID",
+      "description": "JMS Client Id (required to use a durable subscription).",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "username",
+      "label": "Username",
+      "description": "JMS Username.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "password",
+      "label": "Password",
+      "description": "JMS Password.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "requirementsfulfilled",
+      "label": "Did you upload all required jar files?",
+      "description": "Please confirm",
+      "type": "choice",
+      "choice": [
+        "yes"
+      ],
+      "mandatory": true
+    }
+  ]
+}

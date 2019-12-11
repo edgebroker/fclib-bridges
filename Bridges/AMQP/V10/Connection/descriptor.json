@@ -1,0 +1,123 @@
+{
+  "description": "Creates a AMQP 1.0 Connection to a AMQP Broker and provides it as Reference.",
+  "refs": {
+    "output": [
+      {
+        "name": "Connection",
+        "type": "amqp10connection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "hostname",
+      "label": "Hostname",
+      "description": "Provide the hostname of the AMQP Broker.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "port",
+      "label": "Port",
+      "description": "Provide the JMS port of the AMQP Broker.",
+      "type": "integer",
+      "default": 5672,
+      "mandatory": true
+    },
+    {
+      "name": "istls",
+      "label": "TLS",
+      "description": "Check if the connection is secure (TLS).",
+      "type": "boolean",
+      "default": false,
+      "mandatory": false
+    },
+    {
+      "name": "saslenabled",
+      "label": "SASL Enabled",
+      "description": "Enables SASL Authentication.",
+      "type": "boolean",
+      "default": true,
+      "mandatory": false
+    },
+    {
+      "name": "saslanonymous",
+      "label": "SASL Anonymous Login",
+      "description": "Enables SASL Anonymous Login.",
+      "type": "boolean",
+      "default": true,
+      "mandatory": false
+    },
+    {
+      "name": "saslusername",
+      "label": "SASL Username",
+      "description": "SASL Username.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "saslpassword",
+      "label": "SASL Password",
+      "description": "SASL Password.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "saslmechanism",
+      "label": "SASL Mechanism",
+      "description": "Provide the SASL mechanism.",
+      "type": "string",
+      "default": "PLAIN",
+      "mandatory": false
+    },
+    {
+      "name": "containerid",
+      "label": "Container ID",
+      "description": "Provide the Container Id.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "openhostname",
+      "label": "Open Hostname",
+      "description": "Overwrites Hostname set in Open Frame.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "idletimeout",
+      "label": "Idle Timeout",
+      "description": "Idle Timeout (ms).",
+      "type": "integer",
+      "default": "120000",
+      "mandatory": false
+    },
+    {
+      "name": "maxframesize",
+      "label": "Max Frame Size",
+      "description": "Maximum Frame Size (Bytes).",
+      "type": "integer",
+      "default": 131072,
+      "mandatory": false
+    },
+    {
+      "name": "incomingwindow",
+      "label": "Session Incoming Window Size",
+      "description": "Session Incoming Window Size (Frames).",
+      "type": "integer",
+      "min": 1,
+      "default": 100,
+      "mandatory": false
+    },
+    {
+      "name": "outgoingwindow",
+      "label": "Session Outgoing Window Size",
+      "description": "Session Outgoing Window Size (Frames).",
+      "type": "integer",
+      "min": 1,
+      "default": 100,
+      "mandatory": false
+    }
+  ]
+}

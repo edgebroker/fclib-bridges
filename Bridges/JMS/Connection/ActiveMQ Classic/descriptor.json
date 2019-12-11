@@ -1,0 +1,53 @@
+{
+  "description": "Creates a JMS Connection to a ActiveMQ Classic Broker (ActiveMQ 5) and provides it as Reference.",
+  "requirements": "Please upload the ActiveMQ (all) jar file to the flow.",
+  "refs": {
+    "output": [
+      {
+        "name": "Connection",
+        "type": "jmsconnection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "brokerurl",
+      "label": "Broker URL",
+      "description": "Provide the URL of the ActiveMQ Broker.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "clientid",
+      "label": "Client ID",
+      "description": "JMS Client Id (required to use a durable subscription).",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "username",
+      "label": "Username",
+      "description": "JMS Username.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "password",
+      "label": "Password",
+      "description": "JMS Password.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "requirementsfulfilled",
+      "label": "Did you upload all required jar files?",
+      "description": "Please confirm",
+      "type": "choice",
+      "choice": [
+        "yes"
+      ],
+      "mandatory": true
+    }
+  ]
+}

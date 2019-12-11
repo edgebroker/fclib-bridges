@@ -1,0 +1,82 @@
+{
+  "description": "Creates a JMS Connection to a IBM MQ Queue Manager and provides it as Reference.",
+  "requirements": "Please upload the IBM MQ JMS Client jar files to the flow.",
+  "refs": {
+    "output": [
+      {
+        "name": "Connection",
+        "type": "jmsconnection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "hostname",
+      "label": "Hostname",
+      "description": "Provide the hostname of the IBM MQ Queue Manager.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "port",
+      "label": "Port",
+      "description": "Provide the JMS port of the IBM MQ Queue Manager.",
+      "type": "integer",
+      "default": 4001,
+      "mandatory": true
+    },
+    {
+      "name": "channel",
+      "label": "Channel Name",
+      "description": "Provide the channel name.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "queuemanager",
+      "label": "Queue Manager Name",
+      "description": "Provide the queue manager name.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "appname",
+      "label": "Application Name",
+      "description": "Provide the application name.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "clientid",
+      "label": "Client ID",
+      "description": "JMS Client Id (required to use a durable subscription).",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "username",
+      "label": "Username",
+      "description": "JMS Username.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "password",
+      "label": "Password",
+      "description": "JMS Password.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "requirementsfulfilled",
+      "label": "Did you upload all required jar files?",
+      "description": "Please confirm",
+      "type": "choice",
+      "choice": [
+        "yes"
+      ],
+      "mandatory": true
+    }
+  ]
+}
