@@ -27,6 +27,14 @@
       "mandatory": true
     },
     {
+      "name": "usetls",
+      "label": "Use TLS",
+      "description": "Use a TLS connection (please attach the certificate pem to this flow).",
+      "type": "boolean",
+      "default": false,
+      "mandatory": false
+    },
+    {
       "name": "clientid",
       "label": "Client ID",
       "description": "JMS Client Id (required to use a durable subscription).",
