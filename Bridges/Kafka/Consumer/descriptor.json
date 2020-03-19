@@ -128,6 +128,29 @@
       "mandatory": false
     },
     {
+      "name": "additional",
+      "label": "Additional Properties",
+      "description": "Define any additional native Kafka properties here.",
+      "mandatory": false,
+      "type": "table",
+      "tablefields": [
+        {
+          "name": "name",
+          "label": "Property Name",
+          "description": "Specify the name of the property.",
+          "type": "string",
+          "mandatory": true
+        },
+        {
+          "name": "value",
+          "label": "Property Value",
+          "description": "Specify the value of the property.",
+          "type": "string",
+          "mandatory": true
+        }
+      ]
+    },
+    {
       "name": "requirementsfulfilled",
       "label": "Did you upload all required jar files?",
       "description": "Please confirm",

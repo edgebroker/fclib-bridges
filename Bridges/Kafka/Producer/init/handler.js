@@ -15,6 +15,10 @@ function handler() {
         props.put("client.dns.lookup", self.props["clientdnslookup"]);
         if (self.props["clientid"])
             props.put("client.id", self.props["clientid"]);
+        if (self.props["additional"] && self.props["additional"].length > 0) {
+            for (var i=0;i<self.props["additional"].length;i++)
+                props.put(self.props["additional"][i].name, self.props["additional"][i].value);
+        }
         return props;
     }
 }
