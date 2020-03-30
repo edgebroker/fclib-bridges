@@ -3,7 +3,12 @@ function handler() {
     var PROPERTIES = Java.type("java.util.Properties");
     var PRODUCER = Java.type("org.apache.kafka.clients.producer.KafkaProducer");
 
-    this.producer = new PRODUCER(createProps());
+    try {
+        this.producer = new PRODUCER(createProps());
+    } catch (e) {
+        stream.getStreamCtx().logStackTrace(e);
+        throw e;
+    }
 
     function createProps() {
         var props = new PROPERTIES();
@@ -19,6 +24,7 @@ function handler() {
             for (var i=0;i<self.props["additional"].length;i++)
                 props.put(self.props["additional"][i].name, self.props["additional"][i].value);
         }
+        stream.log().info("Creating Producer with props: "+props);
         return props;
     }
 }
