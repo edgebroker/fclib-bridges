@@ -1,0 +1,66 @@
+{
+  "description": "Creates an outbound Pulsar Bridge. It accepts Bytes-, Text- and MapMessages. All message bodies are sent as bytes.",
+  "labelproperty": "topicname",
+  "links": {
+    "input": [
+      {
+        "name": "In",
+        "type": "message",
+        "mandatory": true
+      }
+    ]
+  },
+  "refs": {
+    "input": [
+      {
+        "name": "Connection",
+        "type": "pulsarconnection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "topicname",
+      "label": "Topic Name",
+      "description": "Provide the Topic Name.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "producername",
+      "label": "Producer Name",
+      "description": "Provide the Producer Name.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
+      "name": "routingmode",
+      "label": "Routing Mode",
+      "description": "Message routing logic for producers on partitioned topics.",
+      "type": "choice",
+      "choice": [
+        "Round Robin",
+        "Single Partition",
+        "Custom Partition"
+      ],
+      "default": "Round Robin",
+      "mandatory": true
+    },
+    {
+      "name": "compressiontype",
+      "label": "Comnpression Type",
+      "description": "Message data compression type used by a producer.",
+      "type": "choice",
+      "choice": [
+        "None",
+        "LZ4",
+        "ZLIB",
+        "ZSTD",
+        "SNAPPY"
+      ],
+      "default": "None",
+      "mandatory": true
+    }
+  ]
+}

@@ -6,7 +6,8 @@
       {
         "name": "Out",
         "type": "message",
-        "mandatory": true
+        "mandatory": true,
+        "eventroot": true
       }
     ]
   },

@@ -6,7 +6,8 @@
       {
         "name": "Out",
         "type": "mqtt311message",
-        "mandatory": true
+        "mandatory": true,
+        "eventroot": true
       }
     ]
   },
