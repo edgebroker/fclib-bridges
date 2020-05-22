@@ -1,0 +1,38 @@
+{
+  "description": "Creates an inbound Pulsar Bridge. Received messages are forwarded as BytesMessage to the Out connector.",
+  "links": {
+    "output": [
+      {
+        "name": "Out",
+        "type": "message",
+        "mandatory": true,
+        "eventroot": true
+      }
+    ]
+  },
+  "refs": {
+    "input": [
+      {
+        "name": "Connection",
+        "type": "pulsarconnection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "topics",
+      "label": "Topics",
+      "description": "Provide the names of the topics to subscribe.",
+      "type": "array",
+      "mandatory": true
+    },
+    {
+      "name": "subscriptionname",
+      "label": "Subscription Name",
+      "description": "Provide the name of the subscription.",
+      "type": "string",
+      "mandatory": false
+    }
+  ]
+}

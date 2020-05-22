@@ -5,7 +5,12 @@ function handler() {
     var STRING = Java.type("java.lang.String");
     var LIST = Java.type("java.util.ArrayList");
 
-    this.consumer = new CONSUMER(createProps());
+    try {
+        this.consumer = new CONSUMER(createProps());
+    } catch (e) {
+        stream.getStreamCtx().logStackTrace(e);
+        throw e;
+    }
     this.consumer.subscribe(topicList());
 
     function createProps() {
@@ -29,6 +34,11 @@ function handler() {
         props.put("max.poll.records", STRING.valueOf(self.props["maxpollrecords"]));
         props.put("auto.offset.reset", self.props["autooffsetreset"]);
         props.put("isolation.level", self.props["isolationlevel"]);
+        if (self.props["additional"] && self.props["additional"].length > 0) {
+            for (var i=0;i<self.props["additional"].length;i++)
+                props.put(self.props["additional"][i].name, self.props["additional"][i].value);
+        }
+        stream.log().info("Creating Consumer with props: "+props);
         return props;
     }
 

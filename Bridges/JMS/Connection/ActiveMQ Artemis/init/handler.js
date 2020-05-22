@@ -14,6 +14,8 @@ function handler() {
     connectionParams.put(TRANSPORTCONSTANTS.USE_NIO_PROP_NAME, true);
     connectionParams.put(TRANSPORTCONSTANTS.USE_EPOLL_PROP_NAME, false);
     connectionParams.put(TRANSPORTCONSTANTS.USE_KQUEUE_PROP_NAME, false);
+    if (this.props["usetls"])
+        connectionParams.put(TRANSPORTCONSTANTS.SSL_ENABLED_PROP_NAME, true);
 
     var transportConfiguration = new TRANSPORTCONFIG("org.apache.activemq.artemis.core.remoting.impl.netty.NettyConnectorFactory", connectionParams);
 

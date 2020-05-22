@@ -5,7 +5,8 @@
       {
         "name": "Out",
         "type": "amqp091message",
-        "mandatory": true
+        "mandatory": true,
+        "eventroot": true
       }
     ]
   },

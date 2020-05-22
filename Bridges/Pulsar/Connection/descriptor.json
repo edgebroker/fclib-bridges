@@ -1,0 +1,32 @@
+{
+  "description": "Creates a Connection to one or more Apache Pulsar Brokers and provides it as Reference.",
+  "requirements": "Please upload the Apache Pulsar Java Client jar files to the flow.",
+  "refs": {
+    "output": [
+      {
+        "name": "Connection",
+        "type": "pulsarconnection",
+        "mandatory": true
+      }
+    ]
+  },
+  "properties": [
+    {
+      "name": "serviceURL",
+      "label": "Service URL",
+      "description": "Provide one or more service URLs to the Pulsar brokers.",
+      "type": "string",
+      "mandatory": true
+    },
+    {
+      "name": "requirementsfulfilled",
+      "label": "Did you upload all required jar files?",
+      "description": "Please confirm",
+      "type": "choice",
+      "choice": [
+        "yes"
+      ],
+      "mandatory": true
+    }
+  ]
+}
