@@ -44,7 +44,7 @@
       "label": "Keepalive Interval (Sec)",
       "description": "Set the keepalive interval in seconds.",
       "type": "integer",
-      "min": 1,
+      "min": 0,
       "default": 60,
       "mandatory": false
     },
@@ -53,14 +53,14 @@
       "label": "Username",
       "description": "Username.",
       "type": "string",
-      "mandatory": true
+      "mandatory": false
     },
     {
       "name": "password",
       "label": "Password",
       "description": "Password.",
       "type": "string",
-      "mandatory": true
+      "mandatory": false
     },
     {
       "name": "requirementsfulfilled",

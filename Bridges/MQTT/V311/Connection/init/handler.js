@@ -16,8 +16,11 @@ function handler() {
             options.setCleanSession(self.props["clientsession"]);
         if (self.props["keepaliveinterval"])
             options.setKeepAliveInterval(self.props["keepaliveinterval"]);
-        options.setUserName(self.props["username"]);
-        options.setPassword(self.props["password"].toCharArray());
+        if (self.props["username"])
+            options.setUserName(self.props["username"]);
+        if (self.props["password"])
+            options.setPassword(self.props["password"].toCharArray());
+        options.setConnectionTimeout(0);
         self.client.connect(options);
     }
 
