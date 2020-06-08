@@ -3,13 +3,17 @@ function handler(In) {
     var RM = Java.type("org.apache.pulsar.client.api.MessageRoutingMode");
     var CT = Java.type("org.apache.pulsar.client.api.CompressionType");
     var client = this.getInputReference("Connection")().getClient();
-    var builder = client.newProducer();
-    builder.topic(this.props["topicname"]);
-    if (this.props["producername"])
-        builder.producerName(this.props["producername"]);
-    builder.messageRoutingMode(routingMode(this.props["routingmode"]));
-    builder.compressionType(compressionType(this.props["compressiontype"]));
-    this.producer = builder.create();
+    try {
+        var builder = client.newProducer();
+        builder.topic(this.props["topicname"]);
+        if (this.props["producername"])
+            builder.producerName(this.props["producername"]);
+        builder.messageRoutingMode(routingMode(this.props["routingmode"]));
+        builder.compressionType(compressionType(this.props["compressiontype"]));
+        this.producer = builder.create();
+    } catch (e) {
+        stream.getStreamCtx().logStackTrace(e);
+    }
 
     function routingMode(prop) {
         switch (prop) {

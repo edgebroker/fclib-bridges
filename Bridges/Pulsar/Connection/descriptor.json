@@ -19,6 +19,13 @@
       "mandatory": true
     },
     {
+      "name": "authToken",
+      "label": "Authentication Token",
+      "description": "Provide the authentication token.",
+      "type": "string",
+      "mandatory": false
+    },
+    {
       "name": "requirementsfulfilled",
       "label": "Did you upload all required jar files?",
       "description": "Please confirm",
