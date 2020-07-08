@@ -1,3 +1,3 @@
 function handler() {
-    this.webClient.close();
+    this.subscription.cancel();
 }

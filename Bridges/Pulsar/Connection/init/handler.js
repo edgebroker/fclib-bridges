@@ -12,7 +12,6 @@ function handler() {
                 builder.authentication(AUTHFACTORY.token(self.props["authToken"]));
             }
             self.client = builder.build();
-            stream.log().info("client="+self.client);
         } catch (e) {
             stream.getStreamCtx().logStackTrace(e);
         }

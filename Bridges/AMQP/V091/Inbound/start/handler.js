@@ -26,14 +26,12 @@ function handler() {
 
         var MYCONSUMER = Java.extend(DEFAULTCONSUMER, {
             handleDelivery: function (consumerTag, envelope, properties, body) {
-                        stream.executeCallback(function (msg) {
-                            self.executeOutputLink("Out", msg);
-                            self.channel.basicAck(envelope.getDeliveryTag(), true);
-                        }, {properties: properties, body: body});
-                    }
+                self.executeOutputLink("Out", {properties: properties, body: body});
+                self.channel.basicAck(envelope.getDeliveryTag(), true);
+            }
         });
 
-        this.channel.basicConsume(this.declareOk.getQueue(), false, this.consumerTag, new MYCONSUMER(this.channel));
+        this.channel.basicConsume(this.declareOk.getQueue(), false, this.consumerTag, stream.async("com.rabbitmq.client.Consumer", new MYCONSUMER(this.channel)));
     } catch (e) {
         e.printStackTrace();
         throw e;

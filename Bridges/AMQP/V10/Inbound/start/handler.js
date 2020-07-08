@@ -9,7 +9,7 @@ function handler() {
     this.consumer = this.session.createConsumer(this.props["sourceaddress"], this.props["linkcredit"], this.QoS, this.props["nolocal"], this.selector);
 
     // Initiate polling
-    poll();
+    enqueuePoll();
 
     function qos(prop) {
         switch (prop) {
@@ -44,20 +44,27 @@ function handler() {
         return target;
     }
 
-    function messageAvail(consumer) {
-        poll();
+    function enqueuePoll() {
+        stream.executeCallback(function () {
+            poll();
+        }, null);
     }
 
+    var CALLBACK = Java.extend(Java.type("com.swiftmq.amqp.v100.client.MessageAvailabilityListener"), {
+        messageAvailable: function (consumer) {
+            poll();
+        }
+    });
+    var LISTENER = stream.async("com.swiftmq.amqp.v100.client.MessageAvailabilityListener", new CALLBACK());
+
     function poll() {
-        stream.executeCallback(function () {
-            var amqpMsg = self.consumer.receiveNoWait(messageAvail);
-            if (amqpMsg !== null) {
-                self.executeOutputLink("Out", copyMessage(amqpMsg));
-                if (!amqpMsg.isSettled()) {
-                    amqpMsg.accept();
-                }
-                poll();
+        var amqpMsg = self.consumer.receiveNoWait(LISTENER);
+        if (amqpMsg !== null) {
+            self.executeOutputLink("Out", copyMessage(amqpMsg));
+            if (!amqpMsg.isSettled()) {
+                amqpMsg.accept();
             }
-        }, null);
+            enqueuePoll();
+        }
     }
 }

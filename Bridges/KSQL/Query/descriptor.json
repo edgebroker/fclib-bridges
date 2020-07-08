@@ -1,6 +1,6 @@
 {
   "description": "Run a KSQL Query and stream back the Output. The response is streamed back until the LIMIT specified in the statement is reached or the flow is stopped.",
-  "requirements": "Please upload these jar files to the flow: vertx-core, vertx-web-common, vertx-web-client. Release 4.0.0 or later.",
+  "requirements": "This component uses the Java 11 HttpClient internally. You cannot run it on a Java version less than 11.",
   "links": {
     "output": [
       {
@@ -17,39 +17,16 @@
   },
   "properties": [
     {
-      "name": "host",
-      "label": "Hostname",
-      "description": "Provide the hostname of the KSQL server. Don't use 'localhost' but use the IP address / hostname instead.",
+      "name": "url",
+      "label": "URL",
+      "description": "Provide the url of the KSQL server. Don't use 'localhost' but use the IP address / hostname instead.",
       "type": "string",
-      "mandatory": true,
-      "default": "do-not-use-localhost-but-the-ip"
-    },
-    {
-      "name": "port",
-      "label": "Port",
-      "description": "Provide the port of the KSQL server.",
-      "type": "integer",
-      "mandatory": true,
-      "default": 8088
-    },
-    {
-      "name": "username",
-      "label": "Username",
-      "description": "Provide a username if you need to authenticate to the KSQL server.",
-      "type": "string",
-      "mandatory": false
-    },
-    {
-      "name": "password",
-      "label": "Password",
-      "description": "Provide a password if you need to authenticate to the KSQL server.",
-      "type": "string",
-      "mandatory": false
+      "mandatory": true
     },
     {
       "name": "query",
       "label": "KSQL Query",
-      "description": "Provide the KSQL Select statement.",
+      "description": "Provide the KSQL Select statement. It must end with 'EMIT CHANGES'.",
       "type": "textarea",
       "mandatory": true
     },
@@ -85,7 +62,7 @@
     },
    {
       "name": "requirementsfulfilled",
-      "label": "Did you upload all required jar files?",
+      "label": "Do you ensure this component runs on Java 11 or higher?",
       "description": "Please confirm",
       "type": "choice",
       "choice": [

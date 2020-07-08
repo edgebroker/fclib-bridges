@@ -10,7 +10,7 @@ function handler() {
 
     var connectionParams = new HASHMAP();
     connectionParams.put(TRANSPORTCONSTANTS.HOST_PROP_NAME, this.props["hostname"]);
-    connectionParams.put(TRANSPORTCONSTANTS.PORT_PROP_NAME, this.props["port"]);
+    connectionParams.put(TRANSPORTCONSTANTS.PORT_PROP_NAME, typeconvert.toInteger(this.props["port"]));
     connectionParams.put(TRANSPORTCONSTANTS.USE_NIO_PROP_NAME, true);
     connectionParams.put(TRANSPORTCONSTANTS.USE_EPOLL_PROP_NAME, false);
     connectionParams.put(TRANSPORTCONSTANTS.USE_KQUEUE_PROP_NAME, false);

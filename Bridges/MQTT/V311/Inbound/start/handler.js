@@ -2,13 +2,11 @@ function handler() {
     var self = this;
     var LISTENER = Java.extend(Java.type("org.eclipse.paho.client.mqttv3.IMqttMessageListener"), {
         messageArrived: function(topic, message) {
-            stream.executeCallback(function(msg) {
-                self.executeOutputLink("Out", msg);
-            }, message);
+            self.executeOutputLink("Out", message);
         }
     });
     this.client = this.getInputReference("Connection")().getClient();
-    this.client.subscribe(this.props["topicfilter"], qos(this.props["qos"]), new LISTENER());
+    this.client.subscribe(this.props["topicfilter"], qos(this.props["qos"]), stream.async("org.eclipse.paho.client.mqttv3.IMqttMessageListener", new LISTENER()));
 
     function qos(prop) {
         switch (prop) {
