@@ -1,3 +1,4 @@
 function handler() {
-    this.webClient.close();
+    if (this.subscription)
+        this.subscription.cancel();
 }

@@ -8,9 +8,10 @@ function handler() {
         this.consumer = this.session.createDurableSubscriber(this.session.createTopic(this.props["topicname"]), this.props["durablename"]);
     else
         this.consumer = this.session.createConsumer(this.session.createTopic(this.props["topicname"]));
-    this.consumer.setMessageListener(function(message){
-       stream.executeCallback(function(msg) {
-           self.executeOutputLink("Out", self.jmsconnection.toMessage(msg));
-       }, message);
+    var LISTENER = Java.extend(Java.type("javax.jms.MessageListener"), {
+        onMessage: function (message) {
+            self.executeOutputLink("Out", self.jmsconnection.toMessage(message));
+        }
     });
+    this.consumer.setMessageListener(stream.async("javax.jms.MessageListener", new LISTENER()));
 }

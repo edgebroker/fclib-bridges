@@ -11,9 +11,9 @@ function handler() {
         var cf = ff.createConnectionFactory();
 
         cf.setStringProperty(COMCONST.WMQ_HOST_NAME, this.props["hostname"]);
-        cf.setIntProperty(COMCONST.WMQ_PORT, this.props["port"]);
+        cf.setIntProperty(COMCONST.WMQ_PORT, typeconvert.toInteger(this.props["port"]));
         cf.setStringProperty(COMCONST.WMQ_CHANNEL, this.props["channel"]);
-        cf.setIntProperty(COMCONST.WMQ_CONNECTION_MODE, COMCONST.WMQ_CM_CLIENT);
+        cf.setIntProperty(COMCONST.WMQ_CONNECTION_MODE, typeconvert.toInteger(COMCONST.WMQ_CM_CLIENT));
         cf.setStringProperty(COMCONST.WMQ_QUEUE_MANAGER, this.props["queuemanager"]);
         cf.setStringProperty(COMCONST.WMQ_APPLICATIONNAME, this.props["appname"]);
         cf.setBooleanProperty(JMSCONST.USER_AUTHENTICATION_MQCSP, true);

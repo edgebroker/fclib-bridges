@@ -24,8 +24,8 @@ function handler() {
         }
 
         self.connection.setMechanism(self.props["saslmechanism"]);
-        self.connection.setIdleTimeout(self.props["idletimeout"]);
-        self.connection.setMaxFrameSize(self.props["maxframesize"]);
+        self.connection.setIdleTimeout(typeconvert.toLong(self.props["idletimeout"]));
+        self.connection.setMaxFrameSize(typeconvert.toLong(self.props["maxframesize"]));
         var containerId = self.props["containerid"];
         if (containerId)
             self.connection.setContainerId(containerId);
